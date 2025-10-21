@@ -68,6 +68,7 @@ yt_dlp_download() {
 main() {
   local file="$REALPATH"
   local download_dir="$DOWNLOAD_DIR"
+<<<<<<< HEAD
 
   if [ -z "$URLS_FILE" ] || [ -z "$DOWNLOAD_DIR" ]; then
       help
