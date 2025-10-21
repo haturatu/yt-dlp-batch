@@ -68,8 +68,8 @@ yt_dlp_download() {
 main() {
   local file="$REALPATH"
   local download_dir="$DOWNLOAD_DIR"
-  [ -f "$URLS_FILE" ] || help ; _error_exit "URLs file '$URLS_FILE' not found."
-  [ -n "$DOWNLOAD_DIR" ] || help ; _error_exit "Download directory not specified."
+  [ -f "$URLS_FILE" ] || _error_exit "URLs file '$URLS_FILE' not found."
+  [ -n "$DOWNLOAD_DIR" ] || _error_exit "Download directory not specified."
 
   check_modified "$file"
   if [ $? -eq 0 ]; then
