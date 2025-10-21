@@ -74,7 +74,7 @@ main() {
       _error_exit "Missing URLs file or download directory."
   fi
 
-  [ -f "$URLS_FILE" ] || help ; _error_exit "URLs file '$URLS_FILE' not found."
+  [ -f "$URLS_FILE" ] || _error_exit "URLs file '$URLS_FILE' not found."
 
   check_modified "$file"
   if [ $? -eq 0 ]; then
