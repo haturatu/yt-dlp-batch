@@ -78,3 +78,5 @@ main() {
     printf "No changes detected in '%s'. Skipping download.\n" "$file"
   fi
 }
+
+main "$@"
