@@ -31,7 +31,7 @@ check_modified() {
   local dir=$(dirname "$file")
   local last_modified_time=$(stat -c %Y "$file") # check unix time of last modification
 
-  cd dir || return 1
+  cd $dir || return 1
   if [ -f ".last_modified_$FILENAME" ]; then
     local last_recorded_time=$(cat .last_modified)
     if [ "$last_modified_time" -le "$last_recorded_time" ]; then
