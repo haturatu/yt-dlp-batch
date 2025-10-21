@@ -54,7 +54,13 @@ yt_dlp_download() {
 
   while IFS= read -r url || [ -n "$url" ]; do
     if [ -n "$url" ]; then
-      yt-dlp --merge-output-format mp4 -o "$download_dir/%(title)s.%(ext)s" "$url" || _warn "Failed to download: $url"
+      yt-dlp --merge-output-format mp4 -o "$download_dir/%(title)s.%(ext)s" "$url"
+      if [ $? -ne 0 ]; then
+        _warn "Failed to download: $url"
+      else
+        printf "Downloaded: %s\n" "$url"
+        sed -i "\|^$url\$|d" "$file"
+      fi
     fi
   done < "$file"
 }
